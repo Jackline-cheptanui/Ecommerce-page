@@ -5,7 +5,7 @@
     };
     render(){
         console.log(this.props);
-
+        
         return(
             <div className="col-lg-6">
             <div className="card m-2">
@@ -47,6 +47,6 @@
         );
     }
     componentWillUnmount(){
-        console.log("componentWillUnmount-product");
+        console.log("componentWillUnmount-Product");
        }
  }

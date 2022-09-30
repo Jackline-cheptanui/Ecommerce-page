@@ -21,7 +21,6 @@ export default class ShoppingCart extends Component{
     };
 
     }
-
  
    render(){
     console.log("render-ShoppingCart")
@@ -51,13 +50,15 @@ export default class ShoppingCart extends Component{
     );
         
    }
+
+
    //render end here
-
-
    //Excecute after constructor and render method(include life cycle child components if any of current component)
    componentDidMount(){
     console.log("componentDidMount-ShoppingCart")
    }
+
+
    //updating the product
    componentDidUpdate(prevProps,prevState){
     console.log(" componentDidUpdate - ShoppingCart",
@@ -66,13 +67,22 @@ export default class ShoppingCart extends Component{
     this.state,
     this.props);
 
+    
     // if(prevProps.y!=this.props.y){
     //     //make http call
     // }
+
+
    }
    componentWillUnmount(){
     console.log("componentWillUnmount-ShoppingCart");
    }
+   componentDidCatch(erro,info){
+   console.log("componentDidCatch-ShoppingCart");
+   console.log(erro,info);
+
+   }
+
       //excute when the user click on + button
 
    handleIncrement =(product,maxValue)=>{
@@ -80,7 +90,7 @@ export default class ShoppingCart extends Component{
     let allProducts=[...this.state.products];
     let index=allProducts.indexOf(product);
     if(allProducts[index].quantity<maxValue){
-        allProducts[index].quantity++;
+    allProducts[index].quantity++;
 
           //update the state of the curent component (parent component)
     this.setState({products:allProducts});
@@ -100,6 +110,7 @@ export default class ShoppingCart extends Component{
 
     }
    };
+
 //excutes when the user click ob delete (X) button in the product component
    handleDelete=(product)=>{
     let allProducts=[...this.state.products];
